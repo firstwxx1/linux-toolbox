@@ -5,9 +5,9 @@ URL_MAIN="https://raw.githubusercontent.com/firstwxx1/linux-toolbox/main/tools.s
 URL_MIRROR="https://ghproxy.com/$URL_MAIN"
 SCRIPT_PATH="/root/he_tools.sh"
 
-RED="\033[0;31m"
-GREEN="\033[0;32m"
-NC="\033[0m"
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
 
 if ! command -v curl &> /dev/null; then
     apt-get update -y && apt-get install curl -y || yum install curl -y || dnf install curl -y
@@ -23,8 +23,8 @@ fi
 
 curl -sS -o "$SCRIPT_PATH" "$DOWNLOAD_URL"
 if [ -f "$SCRIPT_PATH" ]; then
-    sed -i 's/\r//g' "\$SCRIPT_PATH"
-    chmod +x "\$SCRIPT_PATH"
+    sed -i 's/\r//g' "$SCRIPT_PATH"
+    chmod +x "$SCRIPT_PATH"
     bash "$SCRIPT_PATH" "$@"
 else
     echo -e "${RED}拉取失败！${NC}"
