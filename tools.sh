@@ -78,7 +78,7 @@ function deploy_repo() {
     echo -e "${GREEN}${repo_name} 拉取完成，目录: /opt/${repo_name}"
     
     # 嗅探并执行下游特有逻辑
-    if [ -f "/opt/${repo_name}/start.sh" ]; then
+        if [ -f "/opt/${repo_name}/start.sh" ]; then
         echo -e "${YELLOW}检测到 start.sh，进入专属部署面板...${NC}"
         cd "/opt/${repo_name}"
         chmod +x start.sh
@@ -88,6 +88,28 @@ function deploy_repo() {
         cd "/opt/${repo_name}"
         chmod +x install.sh
         bash install.sh
+    elif [ -f "/opt/${repo_name}/deploy.sh" ]; then
+        echo -e "${YELLOW}检测到 deploy.sh，进入专属部署面板...${NC}"
+        cd "/opt/${repo_name}"
+        chmod +x deploy.sh
+        bash deploy.sh
+    elif [ -f "/opt/${repo_name}/bootstrap.sh" ]; then
+        echo -e "${YELLOW}检测到 bootstrap.sh，准备执行...${NC}"
+        cd "/opt/${repo_name}"
+        chmod +x bootstrap.sh
+        bash bootstrap.sh
+    elif [ -f "/opt/${repo_name}/terminal_menu.py" ]; then
+        echo -e "${YELLOW}检测到 terminal_menu.py Python 控制面板，准备拉起...${NC}"
+        cd "/opt/${repo_name}"
+        if ! command -v python3 &> /dev/null; then apt-get install -y python3; fi
+        # bybit 库可能需要装 requirements
+        if [ -f "requirements.txt" ]; then
+            if ! command -v pip3 &> /dev/null; then apt-get install -y python3-pip; fi
+            pip3 install -r requirements.txt --break-system-packages 2>/dev/null || pip3 install -r requirements.txt
+        fi
+        python3 terminal_menu.py
+    elif [ -f "/opt/${repo_name}/Makefile" ]; then
+        echo -e "${YELLOW}检测到 Makefile，提示: 这是一个源码编译项目，请进入目录自行 Make。${NC}"
     elif [ -f "/opt/${repo_name}/docker-compose.yml" ]; then
         echo -e "${YELLOW}检测到 docker-compose.yml，准备拉起容器...${NC}"
         cd "/opt/${repo_name}" && docker compose up -d
