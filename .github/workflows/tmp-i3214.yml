@@ -1,0 +1,16 @@
+name: tmp-i3214
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        default: "recon3214.py"
+permissions:
+  contents: read
+jobs:
+  m:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: run
+        run: python3 ${{ github.event.inputs.script }}
