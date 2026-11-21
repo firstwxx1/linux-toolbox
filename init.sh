@@ -79,9 +79,11 @@ if [ "$download_ok" -ne 1 ]; then
   exit 1
 fi
 
-tr -d '\r' < "$TMP_FILE" > "$SCRIPT_PATH"
+STAGE_FILE="${INSTALL_DIR}/.tools.sh.new.$$"
+tr -d '\r' < "$TMP_FILE" > "$STAGE_FILE"
 rm -f "$TMP_FILE"
-chmod +x "$SCRIPT_PATH"
+chmod +x "$STAGE_FILE"
+mv -f "$STAGE_FILE" "$SCRIPT_PATH"
 
 ln -sf "$SCRIPT_PATH" "$BIN_TOOLBOX"
 if [ ! -e "$BIN_HE" ] || [ -L "$BIN_HE" ]; then

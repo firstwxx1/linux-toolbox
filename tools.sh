@@ -970,7 +970,10 @@ case "${1:-}" in
     [ -z "${1:-}" ] && { echo "用法: toolbox deploy <repo-name> [public|private] [install|status|update]"; exit 1; }
     open_or_deploy_project "$1" "${2:-}" "${3:-}"
     ;;
-  update) self_update ;;
+  update)
+    self_update
+    exit 0
+    ;;
   -h|--help|help)
     echo "He's Linux Toolbox v${HE_TOOLBOX_VERSION}"
     echo "用法:"
