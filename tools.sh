@@ -261,15 +261,15 @@ render_dashboard() {
   if has_github_token; then tok_stat="${GREEN}已配置${NC}"; else tok_stat="${YELLOW}未配置${NC}"; fi
   mirror_mode="$(get_mirror_mode)"
 
-  echo -e "${CYAN}┌──────────────────────────────────────────────────────────────────────┐${NC}"
-  echo -e "${CYAN}│${NC}  ${BOLD}${WHITE}He's Linux Toolbox${NC} ${CYAN}v${HE_TOOLBOX_VERSION}${NC}   ${DIM}全量 32 项目统一部署 & VPS 运维中枢${NC}   ${CYAN}│${NC}"
-  echo -e "${CYAN}├──────────────────────────────────────────────────────────────────────┤${NC}"
-  printf "${CYAN}│${NC}  主机: ${WHITE}%-22s${NC}  公网IP: ${CYAN}%-22s${NC} ${CYAN}│${NC}\n" "${host:0:22}" "${ip:0:22}"
-  printf "${CYAN}│${NC}  系统: %-28s  内核: %-18s ${CYAN}│${NC}\n" "${os:0:28}" "${kernel:0:18}"
-  echo -e "${CYAN}│${NC}  负载: ${WHITE}${cpu_cores}C${NC} (${load})  网络: ${bbr}  镜像: ${CYAN}${mirror_mode}${NC}"
-  echo -e "${CYAN}│${NC}  内存: ${WHITE}${mem_info:-N/A}${NC}  Swap: ${swap_info}  磁盘: ${WHITE}${disk_info:-N/A}${NC}"
-  echo -e "${CYAN}│${NC}  Docker: ${docker_stat}  已装面板: ${CYAN}${opt_count}${NC}/${#PROJECT_CATALOG[@]}  私有Token: ${tok_stat}"
-  echo -e "${CYAN}└──────────────────────────────────────────────────────────────────────┘${NC}"
+  echo -e "${CYAN}══════════════════════════════════════════════════════════════════════${NC}"
+  echo -e "  ${BOLD}${WHITE}He's Linux Toolbox${NC} ${CYAN}v${HE_TOOLBOX_VERSION}${NC}   ${DIM}全量 32 项目统一部署 & VPS 运维中枢${NC}"
+  echo -e "${CYAN}──────────────────────────────────────────────────────────────────────${NC}"
+  printf "  主机: ${WHITE}%-24s${NC}  公网IP: ${CYAN}%s${NC}\n" "${host:0:24}" "${ip}"
+  printf "  系统: %-28s  内核: %s\n" "${os:0:28}" "${kernel}"
+  echo -e "  负载: ${WHITE}${cpu_cores}C${NC} (${load})  网络: ${bbr}  镜像: ${CYAN}${mirror_mode}${NC}"
+  echo -e "  内存: ${WHITE}${mem_info:-N/A}${NC}  Swap: ${swap_info}  磁盘: ${WHITE}${disk_info:-N/A}${NC}"
+  echo -e "  Docker: ${docker_stat}  已装面板: ${CYAN}${opt_count}${NC}/${#PROJECT_CATALOG[@]}  私有Token: ${tok_stat}"
+  echo -e "${CYAN}══════════════════════════════════════════════════════════════════════${NC}"
 }
 
 # ==============================================================================
@@ -468,22 +468,22 @@ menu_projects_hub() {
 # ==============================================================================
 
 inspect_all_installed() {
-  echo -e "\n${CYAN}┌──────────────────────────────┬────────────┬──────────────────────────┬───────────────────┐${NC}"
-  echo -e "${CYAN}│${NC} ${BOLD}项目名称                     │ 分类       │ 运行状态                 │ 版本/提交日期     ${CYAN}│${NC}"
-  echo -e "${CYAN}├──────────────────────────────┼────────────┼──────────────────────────┼───────────────────┤${NC}"
+  echo -e "\n${CYAN}────────────────────────────────────────────────────────────────────────────────────${NC}"
+  echo -e "  ${BOLD}项目名称                     | 分类       | 运行状态                 | 版本/提交日期${NC}"
+  echo -e "${CYAN}────────────────────────────────────────────────────────────────────────────────────${NC}"
 
   local found=0
   while IFS= read -r psh; do
     [ -n "$psh" ] || continue
     found=1
     chmod +x "$psh" 2>/dev/null || true
-    printf "${CYAN}│${NC} %s\n" "$(bash "$psh" status 2>/dev/null || echo "$(basename "$(dirname "$psh")") | status-err")"
+    printf "  %s\n" "$(bash "$psh" status 2>/dev/null || echo "$(basename "$(dirname "$psh")") | status-err")"
   done < <(find "$OPT_ROOT" -maxdepth 2 -name "panel.sh" -type f 2>/dev/null | sort)
 
   if [ "$found" -eq 0 ]; then
-    echo -e "${CYAN}│${NC}  ${DIM}(当前 /opt 下尚未部署带 panel.sh 的项目，可在主菜单 [1] 中一键安装)${NC}"
+    echo -e "  ${DIM}(当前 /opt 下尚未部署带 panel.sh 的项目，可在主菜单 [1] 中一键安装)${NC}"
   fi
-  echo -e "${CYAN}└──────────────────────────────┴────────────┴──────────────────────────┴───────────────────┘${NC}"
+  echo -e "${CYAN}────────────────────────────────────────────────────────────────────────────────────${NC}"
 }
 
 menu_manage_installed() {
