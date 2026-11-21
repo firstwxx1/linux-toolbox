@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# He's Linux Toolbox v3.0 — 全量 31 项目统一终端部署面板 & VPS 运维中枢
+# He's Linux Toolbox v3.0 — 全量 32 项目统一终端部署面板 & VPS 运维中枢
 # Repository: https://github.com/firstwxx1/linux-toolbox
 # ==============================================================================
 
@@ -66,6 +66,7 @@ PROJECT_CATALOG=(
 
   "业务应用|Alle-gmail|public|AI 智能邮件聚合客户端"
   "业务应用|ecommerce-automation|private|多平台电商自动化与 RPA 工作流"
+  "业务应用|globalcharge|private|GlobalCharge 数字商品商城 (Medusa v2)"
 )
 
 # ==============================================================================
@@ -261,7 +262,7 @@ render_dashboard() {
   mirror_mode="$(get_mirror_mode)"
 
   echo -e "${CYAN}┌──────────────────────────────────────────────────────────────────────┐${NC}"
-  echo -e "${CYAN}│${NC}  ${BOLD}${WHITE}He's Linux Toolbox${NC} ${CYAN}v${HE_TOOLBOX_VERSION}${NC}   ${DIM}全量 31 项目统一部署 & VPS 运维中枢${NC}   ${CYAN}│${NC}"
+  echo -e "${CYAN}│${NC}  ${BOLD}${WHITE}He's Linux Toolbox${NC} ${CYAN}v${HE_TOOLBOX_VERSION}${NC}   ${DIM}全量 32 项目统一部署 & VPS 运维中枢${NC}   ${CYAN}│${NC}"
   echo -e "${CYAN}├──────────────────────────────────────────────────────────────────────┤${NC}"
   printf "${CYAN}│${NC}  主机: ${WHITE}%-22s${NC}  公网IP: ${CYAN}%-22s${NC} ${CYAN}│${NC}\n" "${host:0:22}" "${ip:0:22}"
   printf "${CYAN}│${NC}  系统: %-28s  内核: %-18s ${CYAN}│${NC}\n" "${os:0:28}" "${kernel:0:18}"
@@ -435,14 +436,14 @@ menu_projects_hub() {
   while true; do
     clear
     render_dashboard
-    echo -e "\n${BOLD}${CYAN}  [1] 个人 31 个 GitHub 项目统一部署中心${NC}"
+    echo -e "\n${BOLD}${CYAN}  [1] 个人 32 个 GitHub 项目统一部署中心${NC}"
     echo -e "${CYAN}──────────────────────────────────────────────────────────────────────${NC}"
     echo -e "  ${CYAN}1)${NC} 🛡️  运维与安全监控       ${DIM}(vps-gdrive-backup / vps-security-monitor / ct8 / 1Panel — 4项)${NC}"
     echo -e "  ${CYAN}2)${NC} 🌐 节点代理与订阅平台   ${DIM}(nodehub / node-deploy / hy2 / agent2api / substore 等 — 8项)${NC}"
     echo -e "  ${CYAN}3)${NC} 🤖 AI 网关与提示词工具  ${DIM}(WorkBuddy / claude-bot / sub2api / muse-video 等 — 10项)${NC}"
     echo -e "  ${CYAN}4)${NC} 📈 量化风控与策略面板   ${DIM}(bybit / okx / binance / crypto-bot-vps 等 — 7项)${NC}"
-    echo -e "  ${CYAN}5)${NC} 💼 业务与效率应用       ${DIM}(Alle-gmail / ecommerce-automation — 2项)${NC}"
-    echo -e "  ${CYAN}6)${NC} 📋 查看全部 31 个项目总表"
+    echo -e "  ${CYAN}5)${NC} 💼 业务与效率应用       ${DIM}(Alle-gmail / ecommerce-automation / globalcharge — 3项)${NC}"
+    echo -e "  ${CYAN}6)${NC} 📋 查看全部 32 个项目总表"
     echo -e "  ${CYAN}s)${NC} 🔍 关键词模糊搜索项目直达面板"
     echo -e "${CYAN}──────────────────────────────────────────────────────────────────────${NC}"
     echo -e "  0) 返回主菜单"
@@ -930,7 +931,7 @@ main_menu() {
     clear
     render_dashboard
     echo ""
-    echo -e "  ${CYAN}1)${NC} ${BOLD}个人 31 项目一键部署${NC}   ${DIM}(已全部接入专属 panel.sh 统一部署面板)${NC}"
+    echo -e "  ${CYAN}1)${NC} ${BOLD}个人 32 项目一键部署${NC}   ${DIM}(已全部接入专属 panel.sh 统一部署面板)${NC}"
     echo -e "  ${CYAN}2)${NC} ${BOLD}已安装项目巡检 & 容器${NC}  ${DIM}(全局 panel.sh 健康状态表 / 批量更新 / Systemd)${NC}"
     echo -e "  ${CYAN}3)${NC} ${BOLD}开源服务 & 一键反代${NC}    ${DIM}(Docker / Caddy / Nginx / HTTPS 反代向导 / Node / 1Panel)${NC}"
     echo -e "  ${CYAN}4)${NC} ${BOLD}系统调优与安全急救箱${NC}   ${DIM}(BBR / Swap / 清理 / Crontab / SSH公钥 / 端口与延迟)${NC}"
@@ -980,7 +981,7 @@ case "${1:-}" in
     echo "  toolbox                         打开交互式运维与部署控制面板"
     echo "  toolbox status                  查看当前服务器实时遥测看板"
     echo "  toolbox inspect                 全局巡检 /opt 下全部已装项目 panel.sh 状态"
-    echo "  toolbox search <关键词>         关键词检索 31 个项目并进入对应面板"
+    echo "  toolbox search <关键词>         关键词检索 32 个项目并进入对应面板"
     echo "  toolbox deploy <repo> [vis]     拉取并打开指定项目的 panel.sh 面板"
     echo "  toolbox update                  自更新工具箱至最新版"
     ;;
