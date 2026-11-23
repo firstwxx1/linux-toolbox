@@ -38,7 +38,6 @@ PROJECT_CATALOG=(
 
   "节点网络|nodehub|public|多 VPS / 多节点代理主控管理系统"
   "节点网络|node-deploy|public|VLESS-Reality + Hy2 + SOCKS5 一键部署"
-  "节点网络|nodepanel-installer|public|自建代理节点管理面板"
   "节点网络|hysteria2-installer|public|Hysteria 2 生产级一键部署与管理"
   "节点网络|agent2api-egress|public|mihomo 逐账号订阅出口与看门狗"
   "节点网络|substore-platform|private|SubStore 订阅商城 (NestJS + Next.js)"
@@ -48,7 +47,6 @@ PROJECT_CATALOG=(
   "AI网关|WorkBuddy-Proxy|public|WorkBuddy 网关 + 管理面板整合版"
   "AI网关|WorkBuddy-Daily|private|WorkBuddy 成长中心全能自动签到"
   "AI网关|claude-telegram-bot|private|Claude Code CLI Telegram 桥接机器人"
-  "AI网关|sub2api|private|Sub2API 定制网关与一键安装面板"
   "AI网关|sub2api-armor-break|private|Sub2API Armor-Break 二开网关"
   "AI网关|muse-video-installer|public|Muse Video 工作台一键安装面板"
   "AI网关|chatgpt2api-dsh|public|ChatGPT2API DSH 本地号池插件"
@@ -58,8 +56,6 @@ PROJECT_CATALOG=(
 
   "量化风控|bybit-demo-auto-protection|public|Bybit V5 模拟盘自动风控与止盈止损"
   "量化风控|okx-demo-auto-protection|public|OKX 模拟盘 AI 自动止盈止损推送"
-  "量化风控|okx-demo-protection|private|OKX 模拟盘持仓风险与止损保护"
-  "量化风控|okx-demo-risk-reporter|private|OKX 模拟盘新闻与风控播报"
   "量化风控|binance-orderflow-bot|private|Binance USD-M 订单流模拟系统"
   "量化风控|crypto-bot-vps|private|Freqtrade 本地化 Flask 安全运维面板"
   "量化风控|usdt-scanner|private|EVM 多链地址工具"
@@ -68,6 +64,8 @@ PROJECT_CATALOG=(
   "业务应用|domain-mail-hub|public|Cloudflare Workers 批量域名测试邮箱与收件箱面板"
   "业务应用|ecommerce-automation|private|多平台电商自动化与 RPA 工作流"
   "业务应用|globalcharge|private|GlobalCharge 数字商品商城 (Medusa v2)"
+  "业务应用|lumen-workbench|private|FIRSTWXX DESK 个人运维中枢与 AI 额度遥测工作台"
+  "业务应用|personal-blog|private|全栈 Next.js + Prisma 个人博客系统"
 )
 
 # ==============================================================================
