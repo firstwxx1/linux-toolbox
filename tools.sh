@@ -65,6 +65,7 @@ PROJECT_CATALOG=(
   "量化风控|usdt-scanner|private|EVM 多链地址工具"
 
   "业务应用|Alle-gmail|public|AI 智能邮件聚合客户端"
+  "业务应用|domain-mail-hub|public|Cloudflare Workers 批量域名测试邮箱与收件箱面板"
   "业务应用|ecommerce-automation|private|多平台电商自动化与 RPA 工作流"
   "业务应用|globalcharge|private|GlobalCharge 数字商品商城 (Medusa v2)"
 )
